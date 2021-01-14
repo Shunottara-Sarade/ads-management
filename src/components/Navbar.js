@@ -57,6 +57,12 @@ function Navbar() {
          
           {button && <Button buttonStyle='btn--outline'>LOGIN</Button>}
 
+
+            
+          
+          {/* <i class="far fa-sign-in"></i> */}
+         
+          
           </ul>
         </div>
       </nav>
