@@ -16,6 +16,7 @@ import StaffLogin from './components/StaffLogin';
 import AdminDashboard from './components/AdminDashboard';
 import CreateAdvertisementComponent from './components/CreateAdvertisement';
 import UploadImage from './components/UploadImage';
+import CustomerAdvertisement from './components/CustomerAdvertisement';
 
 class App extends React.Component {
     render() {
@@ -39,6 +40,7 @@ class App extends React.Component {
                     <Route path="/admin-dashboard" component={AdminDashboard}/>
                     <Route path= "/add-advertisement" component={CreateAdvertisementComponent}/>
                     <Route path="/upload-image" component={UploadImage}/>
+                    <Route path="/customer-advertisement" component={CustomerAdvertisement}/>
                 </Switch>
             </Router>
         );
