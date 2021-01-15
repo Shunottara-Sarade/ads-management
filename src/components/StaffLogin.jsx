@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
 import '../css/login.css';
-
+import Navbar from './Navbars/LoginNavbar';
 export default class StaffLogin extends Component {
     customerData;
 
@@ -192,7 +192,7 @@ export default class StaffLogin extends Component {
 
 
             <div>
-
+                <Navbar />
                 <div className="container">
 
                     <div className="row">
@@ -239,7 +239,7 @@ export default class StaffLogin extends Component {
 
                                 </div>
 
-                                
+
                             </Form>
 
                         </div>
