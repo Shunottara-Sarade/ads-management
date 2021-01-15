@@ -8,6 +8,8 @@ class CreateAdvertisementComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            custId:0,
+            id:'',
             advType: '',
             advLocation: '',
             createdBy: '',
@@ -15,32 +17,54 @@ class CreateAdvertisementComponent extends Component {
             endDate: '',
             advImage: ''
         }
+        
         this.changeAdvTypeHandler = this.changeAdvTypeHandler.bind(this);
         this.changeAdvLocationHandler = this.changeAdvLocationHandler.bind(this);
         this.changeCreatedByHandler = this.changeCreatedByHandler.bind(this);
         this.changeStartDateHandler = this.changeStartDateHandler.bind(this);
         this.changeEndDateHandler = this.changeEndDateHandler.bind(this);
         this.changeAdvImageHandler = this.changeAdvImageHandler.bind(this);
+       
         this.saveAdvertisement = this.saveAdvertisement.bind(this);
+    }
+    componentDidMount()
+    {
+        let data = localStorage.getItem('customer');
+        data = JSON.parse(data);
+        let email=data.email;
+        AdvertisementService.getIdByEmail(email).then(res=>{
+            this.setState({custId:parseInt(res.data)});
+           
+        });
     }
 
     saveAdvertisement = (e) => {
         e.preventDefault();
 
         let advertisement = {
+            custId:this.state.custId,
             id: null, advType: this.state.advType, advLocation: this.state.advLocation,
             createdBy: this.state.createdBy, startDate: this.state.startDate, endDate: this.state.endDate
             
         };
         console.log(JSON.stringify(advertisement));
+        //alert("your advertisement id : "+ advertisement.id);
+
         AdvertisementService.createAdvertisement(advertisement).then(res => {
+            
             //alert("Advertisement created");
+            this.setState({id: res.data});
+            alert("Your advertisement id : " + this.state.id);
             if(this.state.createdBy==="Own")
             {
                 //document.getElementById("uploadImg").disabled=false;
+               // console.alert("Your Advertisement ID" , this.state.id)
+              
                 if(window.confirm("Proceed to upload image?"))
                 {
+
                     this.props.history.push('/upload-image');
+                    //window.location("/upload-image");
                 }
                 else
                 {
