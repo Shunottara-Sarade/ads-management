@@ -1,18 +1,20 @@
 import React from 'react';
 import './HeroSection.css';
 import './Button.css';
-import Button from './Button';
-import Hotel from './Hotel';
+import Navbars from './Navbars/LoginNavbar';
 import { Link } from 'react-router-dom';
+
 
 export default function LoginInitial() {
 
   return (
 
     <div className='LoginAs'>
+      <Navbars/>
       <div className='logintag'>
         <h1>Login As</h1>
       </div>
+      
       <div>
 
         <Link to='/login' className='btn-mobile'>

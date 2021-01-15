@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
 import '../css/login.css';
+import Navbar from './Navbars/LoginNavbar';
 export default class Login extends Component {
     customerData;
     constructor(props) {
@@ -173,11 +174,11 @@ export default class Login extends Component {
 
     render() {
 
+       
         return (
 
-
             <div>
-
+<Navbar/>
                 <div className="container">
 
                     <div className="row">
@@ -185,7 +186,7 @@ export default class Login extends Component {
                         <div className="col-md-4 login-sec">
 
                             <h2 className="text-center">Customer Login</h2>
-
+                            
                             <Form method="post" name="userRegistrationForm" onSubmit={this.submituserRegistrationForm} >
 
                                 <FormGroup>
@@ -233,7 +234,7 @@ export default class Login extends Component {
 
                                     <div className="d-flex justify-content-center links">
 
-                                        <a className="linka">Forgot your password?</a>
+                                        <a href="/forgot" className="linka">Forgot your password?</a>
 
                                     </div>
 

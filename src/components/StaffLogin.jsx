@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import Select from 'react-select';
 import axios from 'axios';
 import '../css/login.css';
-
+import Navbar from './Navbars/LoginNavbar';
 export default class StaffLogin extends Component {
     customerData;
 
@@ -82,10 +80,10 @@ export default class StaffLogin extends Component {
 
             axios.post(apiBaseUrl, data, { headers: headers }).then(function (response) {
                 console.log(response);
-                if (data.role == "ADMIN") {
+                if (data.role === "ADMIN") {
                     window.location = "/admin-dashboard";
                 }
-                else if (data.role == "OPERATION") {
+                else if (data.role === "OPERATION") {
                     window.location = "/ops-dashboard";
                 }
                 if (response.data.success) {
@@ -194,7 +192,7 @@ export default class StaffLogin extends Component {
 
 
             <div>
-
+                <Navbar />
                 <div className="container">
 
                     <div className="row">
@@ -241,21 +239,6 @@ export default class StaffLogin extends Component {
 
                                 </div>
 
-                                <div className="mt-4">
-
-                                    <div className="d-flex justify-content-center links">
-
-                                        Don't have an account? <Link href="/register" to="/register" className="linka">Register</Link>
-
-                                    </div>
-
-                                    <div className="d-flex justify-content-center links">
-
-                                        <a className="linka">Forgot your password?</a>
-
-                                    </div>
-
-                                </div>
 
                             </Form>
 
