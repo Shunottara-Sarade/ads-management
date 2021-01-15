@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AdvertisementService from './services/AdvertisementService';
+import { Link } from 'react-router-dom';
 // import Cookies from 'universal-cookie';
 
 class CreateAdvertisementComponent extends Component {
@@ -177,7 +178,7 @@ class CreateAdvertisementComponent extends Component {
 
                                         <button className="btn btn-success" onClick={this.saveAdvertisement}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
-                                       
+                                     <Link to="/upload-image">  <button type="button" class="btn btn-primary" style={{ marginLeft: "10px" }}>Proceed for Image</button></Link> 
                                     </form>
 
                                 </fieldset>
