@@ -6,7 +6,7 @@ const App = () => {
     data = JSON.parse(data);
     return (
         <div>
-            <Navbar  light expand="md">
+            <Navbar color="faded" light expand="md">
                 <NavbarToggler />
                 <Collapse navbar>
                     <Nav className="ml-auto" navbar>
