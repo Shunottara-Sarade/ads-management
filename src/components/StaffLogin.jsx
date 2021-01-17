@@ -205,9 +205,7 @@ export default class StaffLogin extends Component {
 
                                 <FormGroup>
 
-                                    <Label for="exampleEmail">Email</Label>
-
-                                    <Input type="email" name="email" id="exampleEmail" value={this.state.email} onChange={this.handleChangeEmail} placeholder="Email Id" />
+                                    <Input type="email" name="email" id="exampleEmail" value={this.state.email} onChange={this.handleChangeEmail} placeholder="&#xf0e0; Email Id" />
 
                                     <div className="errorMsg">{this.state.errors.email}</div>
 
@@ -215,9 +213,7 @@ export default class StaffLogin extends Component {
 
                                 <FormGroup>
 
-                                    <Label for="examplePassword">Password</Label>
-
-                                    <Input type="password" name="password" id="examplePassword" value={this.state.password} onChange={this.handleChangePassword} placeholder="Password" />
+                                    <Input type="password" name="password" id="examplePassword" value={this.state.password} onChange={this.handleChangePassword} placeholder="&#xf084; Password" />
 
                                     <div className="errorMsg">{this.state.errors.password}</div>
 
@@ -225,7 +221,7 @@ export default class StaffLogin extends Component {
                                 <FormGroup>
                                     <Label for="role">Role</Label>
                                     <select name="role" className="form-control" value={this.state.role} onChange={this.handleChangeRole}  >
-                                        <option></option>
+                                        <option>Select Role</option>
                                         <option >ADMIN</option>
                                         <option>OPERATION</option>
                                     </select>
