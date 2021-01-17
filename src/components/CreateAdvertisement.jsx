@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import AdvertisementService from './services/AdvertisementService';
-import { Link } from 'react-router-dom';
-// import Cookies from 'universal-cookie';
-
 class CreateAdvertisementComponent extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            custId:0,
-            id:'',
+            custId: 0,
+            id: '',
             advType: '',
             advLocation: '',
             createdBy: '',
@@ -17,24 +14,23 @@ class CreateAdvertisementComponent extends Component {
             endDate: '',
             advImage: ''
         }
-        
+
         this.changeAdvTypeHandler = this.changeAdvTypeHandler.bind(this);
         this.changeAdvLocationHandler = this.changeAdvLocationHandler.bind(this);
         this.changeCreatedByHandler = this.changeCreatedByHandler.bind(this);
         this.changeStartDateHandler = this.changeStartDateHandler.bind(this);
         this.changeEndDateHandler = this.changeEndDateHandler.bind(this);
         this.changeAdvImageHandler = this.changeAdvImageHandler.bind(this);
-       
+
         this.saveAdvertisement = this.saveAdvertisement.bind(this);
     }
-    componentDidMount()
-    {
+    componentDidMount() {
         let data = localStorage.getItem('customer');
         data = JSON.parse(data);
-        let email=data.email;
-        AdvertisementService.getIdByEmail(email).then(res=>{
-            this.setState({custId:parseInt(res.data)});
-           
+        let email = data.email;
+        AdvertisementService.getIdByEmail(email).then(res => {
+            this.setState({ custId: parseInt(res.data) });
+
         });
     }
 
@@ -42,50 +38,41 @@ class CreateAdvertisementComponent extends Component {
         e.preventDefault();
 
         let advertisement = {
-            custId:this.state.custId,
+            custId: this.state.custId,
             id: null, advType: this.state.advType, advLocation: this.state.advLocation,
             createdBy: this.state.createdBy, startDate: this.state.startDate, endDate: this.state.endDate
-            
+
         };
         console.log(JSON.stringify(advertisement));
-        //alert("your advertisement id : "+ advertisement.id);
-
         AdvertisementService.createAdvertisement(advertisement).then(res => {
-            
-            //alert("Advertisement created");
-            this.setState({id: res.data});
-            alert("Your advertisement id : " + this.state.id);
-            if(this.state.createdBy==="Own")
-            {
-                //document.getElementById("uploadImg").disabled=false;
-               // console.alert("Your Advertisement ID" , this.state.id)
-              
-                if(window.confirm("Proceed to upload image?"))
-                {
+
+            this.setState({ id: res.data });
+            localStorage.setItem("AdId", this.state.id);
+            if (this.state.createdBy === "Own") {
+
+                if (window.confirm("Proceed to upload image?")) {
 
                     this.props.history.push('/upload-image');
-                    //window.location("/upload-image");
+
                 }
-                else
-                {
-                    this.props.history.push('/add-advertisement');
+                else {
+                    this.props.history.push('/dashboard');
                 }
             }
-            else if(this.state.createdBy==="Ops Team")
-            {
-               alert("Advertisement created")
+            else if (this.state.createdBy === "Ops Team") {
+                alert("Advertisement created")
                 this.props.history.push('/advertisement');
             }
-            
+
         })
     }
 
 
     cancel() {
-        this.props.history.push('/advertisement');
+        this.props.history.push('/dashboard');
     }
 
-    uploadImage(){
+    uploadImage() {
         this.props.history.push('/upload-image');
     }
 
@@ -109,19 +96,12 @@ class CreateAdvertisementComponent extends Component {
         this.setState({ endDate: event.target.value });
     }
 
-    
+
 
     changeAdvImageHandler = (event) => {
         this.setState({ advImage: event.target.value });
     }
 
-    // changeOwnHandler = () => {
-    //     document.getElementById("uploadImg").disabled = false;
-    // }
-
-    // changeOpsTeamHandler = () => {
-    //     document.getElementById("uploadImg").disabled = true;
-    // }
 
     render() {
         return (
@@ -143,9 +123,10 @@ class CreateAdvertisementComponent extends Component {
                                                 onChange={this.changeAdvTypeHandler}>
                                                 <option value="Choose">Choose Advertisement Type</option>
                                                 <option value="Electronics">Electronics</option>
-                                                <option value="Spices">Spices</option>
+                                                <option value="Hotel">Hotel</option>
+                                                <option value="Restaurant and Bars">Restaurant and Bars</option>
+                                                <option value="Jobs">Jobs</option>
                                                 <option value="Clothing">Clothing</option>
-                                                <option value="Commercial">Commercial</option>
                                             </select>
                                         </div>
 
@@ -187,22 +168,11 @@ class CreateAdvertisementComponent extends Component {
                                                 onChange={this.changeEndDateHandler} />
                                         </div>
 
-                                        {/* <div className="form-group">
-                                        <label>Enter Staff Id</label>
-                                        <input placeholder="Staff Id" name="staffId"
-                                            className="form-control" value={this.state.staffId}
-                                            onChange={this.changeStaffIdHandler} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label>Enter Customer Id</label>
-                                        <input placeholder="Customer Id" name="custId"
-                                            className="form-control" value={this.state.custId}
-                                            onChange={this.changeCustIdHandler} />
-                                    </div> */}
+
 
                                         <button className="btn btn-success" onClick={this.saveAdvertisement}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
-                                     <Link to="/upload-image">  <button type="button" class="btn btn-primary" style={{ marginLeft: "10px" }}>Proceed for Image</button></Link> 
+
                                     </form>
 
                                 </fieldset>
@@ -212,9 +182,7 @@ class CreateAdvertisementComponent extends Component {
 
                 </div>
                 <div>
-                    {/* <form>
-                    <p> <button className="btn btn-primary" id="uploadImg" onClick={this.uploadImage.bind(this)} style={{ marginLeft: "10px" }} disabled>Upload Image</button></p>
-                    </form> */}
+
                 </div>
                 <div>
                     <p id="cookie"></p>
