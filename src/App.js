@@ -16,13 +16,18 @@ import StaffLogin from './components/StaffLogin';
 import AdminDashboard from './components/AdminDashboard';
 import CreateAdvertisementComponent from './components/CreateAdvertisement';
 import UploadImage from './components/UploadImage';
-import CustomerAdvertisement from './components/CustomerAdvertisement';
+import ChangePassword from './components/ChangePassword';
+import ListAdvertisementComponent from './components/ListAdvertisement';
+import ShowAdvertisements from './components/ShowAdvertisements';
+import IsPosted from './components/IsPosted';
+import Clothing from './components/Clothing';
+import UnPosted from './components/UnPosted';
 
 class App extends React.Component {
     render() {
         return (
             <Router>
-                
+
                 <Switch>
                     <Route path='/' exact component={Home} />
                     <Route path='/electronic' component={Electronic} />
@@ -37,10 +42,15 @@ class App extends React.Component {
                     <Route path="/Logout" component={Logout} />
                     <Route path='/sign-up' component={LoginInitial} />
                     <Route path="/staff-login" component={StaffLogin} />
-                    <Route path="/admin-dashboard" component={AdminDashboard}/>
-                    <Route path= "/add-advertisement" component={CreateAdvertisementComponent}/>
-                    <Route path="/upload-image" component={UploadImage}/>
-                    <Route path="/customer-advertisement" component={CustomerAdvertisement}/>
+                    <Route path="/admin-dashboard" component={AdminDashboard} />
+                    <Route path="/add-advertisement" component={CreateAdvertisementComponent} />
+                    <Route path="/upload-image" component={UploadImage} />
+                    <Route path="/change-password" component={ChangePassword} />
+                    <Route path="/list-advertisement" component={ListAdvertisementComponent} />
+                    <Route path="/show-advertisements" component={ShowAdvertisements} />
+                    <Route path="/is-posted" component={IsPosted} />
+                    <Route path="/clothing" component={Clothing} />
+                    <Route path="/not-posted" component={UnPosted} />
                 </Switch>
             </Router>
         );
