@@ -11,13 +11,13 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/img-11.jpg'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
+              text='Find your ideal hotel for the best price '
               label='Hotels'
               path='/hotel'
             />
             <CardItem
               src='images/img-12.png'
-              text='Travel through the Islands of Bali in a Private Cruise'
+              text="The future is electronic. It's radio, television and the internet. It's not really newspapers anymore"
               label='Electronics'
               path='/electronic'
             />
@@ -25,21 +25,21 @@ function Cards() {
           <ul className='cards__items'>
             <CardItem
               src='images/img-13.jpeg'
-              text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
+              text='We serve passion'
               label='Restaurants and bars'
               path='/restaurant'
             />
             <CardItem
               src='images/img-10.jpg'
-              text='Experience Football on Top of the Himilayan Mountains'
+              text="We're hiring !!"
               label='Jobs'
               path='/jobs'
             />
             <CardItem
-              src='images/img-14.jpg'
-              text='Ride through the Sahara Desert on a guided camel tour'
-              label='Others'
-              path='/sign-up'
+              src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2iv_i93JlEVyIrDA2NjDzjLZ2R_aebPRCHg&usqp=CAU'
+              text='Life is too short to wear boaring clothes!!'
+              label='Clothing'
+              path='/clothing'
             />
           </ul>
         </div>
