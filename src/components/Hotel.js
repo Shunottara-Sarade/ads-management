@@ -1,31 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Cards.css';
-import CardItem from './CardItem';
+import AdvertisementService from './services/AdvertisementService';
+import Navbar from './Navbar';
 
-function Hotel() {
-  return (
-       <div className='cards'>
-      <h1>Hotel Advertisements!</h1>
-      <div className='cards__container'>
-        <div className='cards__wrapper'>
-          <ul className='cards__items'>
-            <CardItem
-              src='images/img-3.jpg'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
-              label='Pune'
-            />
-            <CardItem
-              src='images/img-4.jpg'
-              text='Travel through the Islands of Bali in a Private Cruise'
-              label='Mumbai'
-            />
-          </ul>
-          <ul className='cards__items'>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
+class Hotel extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            advType: 'Hotel',
+            Advertisements: []
+        }
+        this.changeAdvTypeHandler = this.changeAdvTypeHandler.bind(this);
+    }
+
+    changeAdvTypeHandler(event) {
+        this.setState({ advType: event.target.value });
+    }
+
+    componentDidMount() {
+        AdvertisementService.getImagesByType(this.state.advType)
+            .then(res => {
+                this.setState({ Advertisements: res.data });
+            });
+
+    }
+
+    render() {
+        return (
+            <div>
+                <Navbar />
+
+                <div class="container">
+                    <div class="row">
+                        {
+                            this.state.Advertisements.map(
+                                advertisement =>
+                                    <tr key={advertisement.id}>
+                                        <img class="img-responsive" src={advertisement.link}
+                                            style={{ marginLeft: "50px" }} width="230px" height="250px"></img>
+                                        <h4 className="text" style={{ marginLeft: "50px" }}>Category : {advertisement.advType}</h4>
+                                        <h4 className="text" style={{ marginLeft: "50px" }}>Location : {advertisement.advLocation}</h4>
+
+
+
+
+
+                                    </tr>
+                            )
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        );
+    }
 }
+
 
 export default Hotel;
