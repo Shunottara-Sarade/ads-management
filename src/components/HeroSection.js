@@ -5,7 +5,7 @@ import './HeroSection.css';
 function HeroSection() {
   return (
     <div className='hero-container'>
-      <h1>ADVENTURE AWAITS</h1>
+      <h3 className="text-center">Bringing collaboration and efficiency to businesses online</h3>
       <p>What are you waiting for?</p>
     </div>
   );
