@@ -7,7 +7,7 @@ video {
 }
 
 .hero-container {
-  /* background: url('/images/img-18.jpg') center center/cover no-repeat;  */
+  background: url('/src/css/img-18.jpg') center center/cover no-repeat;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -18,9 +18,9 @@ video {
   object-fit: contain;
 }
 
-.hero-container>h1 {
+.hero-container>h3 {
   color: #fff;
-  font-size: 100px;
+  font-size: 80px;
   margin-top: -100px;
 }
 
@@ -44,14 +44,14 @@ video {
 }
 
 @media screen and (max-width: 960px) {
-  .hero-container>h1 {
+  .hero-container>h3 {
     font-size: 70px;
     margin-top: -150px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .hero-container>h1 {
+  .hero-container>h3 {
     font-size: 50px;
     margin-top: -100px;
   }
