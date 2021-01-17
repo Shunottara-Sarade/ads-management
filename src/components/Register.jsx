@@ -93,12 +93,12 @@ export default class Register extends Component {
 
                 } else {
 
-                    alert(response.data.message);
+                    alert("Registration Successful");
 
                 }
 
             }).catch(function (error) {
-
+                alert("Given email is already registred");
                 console.log(error);
 
             });
