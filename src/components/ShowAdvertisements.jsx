@@ -1,34 +1,43 @@
 import React, { Component } from 'react';
-import './Cards.css';
 import AdvertisementService from './services/AdvertisementService';
+import dateFormat from 'dateformat';
+import './Cards.css';
+import CardItem from './CardItem';
 import Navbar from './Navbar';
-
-class Restaurant extends Component {
+import '../css/ViewAds.css';
+class ShowAdvertisements extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            advType: 'Restaurant and Bars',
+        super(props)
+
+        this.state =
+        {
             Advertisements: []
         }
-        this.changeAdvTypeHandler = this.changeAdvTypeHandler.bind(this);
-    }
 
-    changeAdvTypeHandler(event) {
-        this.setState({ advType: event.target.value });
+
     }
 
     componentDidMount() {
-        AdvertisementService.getImagesByType(this.state.advType)
-            .then(res => {
+        AdvertisementService.getAdvertisement()
+            .then((res) => {
                 this.setState({ Advertisements: res.data });
             });
 
     }
 
+
+
+    dateFormatHandler = (startDate) => {
+        return dateFormat(startDate, "dd-mm-yyyy");
+    }
+
     render() {
         return (
+
             <div>
                 <Navbar />
+
+
 
                 <div class="container">
                     <div class="row">
@@ -40,15 +49,14 @@ class Restaurant extends Component {
                                             style={{ marginLeft: "50px" }} width="230px" height="250px"></img>
                                         <h4 className="text" style={{ marginLeft: "50px" }}>Category : {advertisement.advType}</h4>
                                         <h4 className="text" style={{ marginLeft: "50px" }}>Location : {advertisement.advLocation}</h4>
-
                                     </tr>
                             )
                         }
 
+
                     </div>
                 </div>
             </div>
-
 
 
         );
@@ -56,4 +64,4 @@ class Restaurant extends Component {
 }
 
 
-export default Restaurant;
+export default ShowAdvertisements;
