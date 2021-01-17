@@ -1,38 +1,41 @@
 import React from 'react';
 import './HeroSection.css';
 import './Button.css';
-import Navbars from './Navbars/LoginNavbar';
 import { Link } from 'react-router-dom';
-
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 export default function LoginInitial() {
 
   return (
+    <div><Navbar />
+      <div className='LoginAs'>
 
-    <div className='LoginAs'>
-      <Navbars/>
-      <div className='logintag'>
-        <h1>Login As</h1>
+
+        <div className='logintag'>
+          <h1 >Login As</h1>
+        </div>
+
+        <div>
+
+          <Link to='/login' className='btn-mobile'>
+
+            <button className="buttonCust" ><span>Customer</span></button>
+          </Link>
+
+
+          <Link to='/staff-login' className='btn-mobile'>
+
+            <button class="buttonStaf">
+
+              <span>Staff</span></button>
+          </Link>
+
+        </div>
+
       </div>
-      
-      <div>
-
-        <Link to='/login' className='btn-mobile'>
-
-          <button class="buttonCust" >Customer</button>
-        </Link>
-        <Link to='/staff-login' className='btn-mobile'>
-
-          <button class="buttonStaf" variant="outline-primary">
-
-            Staff</button>
-        </Link>
-
-
-      </div>
-
+      <div className='bottomFooter'><Footer /></div>
     </div>
-
   );
 
 
