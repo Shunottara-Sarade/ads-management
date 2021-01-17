@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 import '../css/login.css';
-import Navbar from './Navbars/LoginNavbar';
 export default class Login extends Component {
     customerData;
     constructor(props) {
@@ -174,26 +174,24 @@ export default class Login extends Component {
 
     render() {
 
-       
         return (
 
-            <div>
-<Navbar/>
-                <div className="container">
 
-                    <div className="row">
+            <div>
+                <Navbar />
+
+                <div className="container" data-test="Login">
+
+                    <div className="row" data-test="email">
 
                         <div className="col-md-4 login-sec">
 
-                            <h2 className="text-center">Customer Login</h2>
-                            
+                            <h2 className="text-center">Login</h2>
+
                             <Form method="post" name="userRegistrationForm" onSubmit={this.submituserRegistrationForm} >
 
                                 <FormGroup>
-
-                                    <Label for="exampleEmail">Email</Label>
-
-                                    <Input type="email" name="email" id="exampleEmail" value={this.state.email} onChange={this.handleChangeEmail} placeholder="Email Id" />
+                                    <Input type="email" name="email" id="exampleEmail" value={this.state.email} onChange={this.handleChangeEmail} placeholder="&#xf0e0; Email Id" />
 
                                     <div className="errorMsg">{this.state.errors.email}</div>
 
@@ -201,9 +199,7 @@ export default class Login extends Component {
 
                                 <FormGroup>
 
-                                    <Label for="examplePassword">Password</Label>
-
-                                    <Input type="password" name="password" id="examplePassword" value={this.state.password} onChange={this.handleChangePassword} placeholder="Password" />
+                                    <Input type="password" name="password" id="examplePassword" value={this.state.password} onChange={this.handleChangePassword} placeholder="&#xf084; Password" />
 
                                     <div className="errorMsg">{this.state.errors.password}</div>
 
@@ -220,7 +216,7 @@ export default class Login extends Component {
 
                                 <div className="d-flex justify-content-center mt-3 login_container">
 
-                                    <Button type="submit" className="btn btn-login">Submit</Button>
+                                    <Button type="submit" className="btn btn-login" >Login</Button>
 
                                 </div>
 
@@ -234,7 +230,7 @@ export default class Login extends Component {
 
                                     <div className="d-flex justify-content-center links">
 
-                                        <a href="/forgot" className="linka">Forgot your password?</a>
+                                        <a className="linka">Forgot your password?</a>
 
                                     </div>
 
