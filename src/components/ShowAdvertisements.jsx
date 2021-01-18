@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AdvertisementService from './services/AdvertisementService';
 import dateFormat from 'dateformat';
 import './Cards.css';
-import CardItem from './CardItem';
 import Navbar from './Navbar';
 import '../css/ViewAds.css';
 class ShowAdvertisements extends Component {
@@ -45,7 +44,7 @@ class ShowAdvertisements extends Component {
                             this.state.Advertisements.map(
                                 advertisement =>
                                     <tr key={advertisement.id}>
-                                        <img class="img-responsive" src={advertisement.link}
+                                        <img class="img-responsive" src={advertisement.link} alt="ads"
                                             style={{ marginLeft: "50px" }} width="230px" height="250px"></img>
                                         <h4 className="text" style={{ marginLeft: "50px" }}>Category : {advertisement.advType}</h4>
                                         <h4 className="text" style={{ marginLeft: "50px" }}>Location : {advertisement.advLocation}</h4>
