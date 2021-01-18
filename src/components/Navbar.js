@@ -29,7 +29,7 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <div  className='navbar-logo'>
-            <i class='fab fa-typo3' />
+            <i className='fab fa-typo3' />
 
              ADs Management
           
@@ -40,7 +40,7 @@ function Navbar() {
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
               <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                  <i class="fa fa-home"></i>&nbsp;
+                  <i className="fa fa-home"></i>&nbsp;
                   HOME
               </Link>
             </li>
@@ -52,7 +52,7 @@ function Navbar() {
                 to="/show-advertisements"
                 className='nav-links'
                 onClick={closeMobileMenu}>
-                  <i class="fas fa-ad" aria-hidden="true"></i>&nbsp;
+                  <i className="fas fa-ad" aria-hidden="true"></i>&nbsp;
                   View Ads
               </Link>
             </li>
