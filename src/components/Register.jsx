@@ -193,9 +193,9 @@ export default class Register extends Component {
 
             <div>
 
-                <div className="container">
+                <div className="container" data-test="Register"> 
 
-                    <div className="row">
+                    <div className="row" >
 
                         <div className="col-md-4 login-sec">
 

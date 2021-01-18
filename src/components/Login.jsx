@@ -137,7 +137,7 @@ export default class Login extends Component {
 
                 formIsValid = false;
 
-                errors["password"] = "*Please enter secure and strong password.";
+                errors["password"] = "*Please enter correct password.";
 
             }
 
@@ -214,9 +214,9 @@ export default class Login extends Component {
 
                                 </FormGroup>
 
-                                <div className="d-flex justify-content-center mt-3 login_container">
+                                <div className="d-flex justify-content-center mt-3 login_container" >
 
-                                    <Button type="submit" className="btn btn-login" >Login</Button>
+                                    <Button type="submit" className="btn btn-login">Login</Button>
 
                                 </div>
 
@@ -230,7 +230,7 @@ export default class Login extends Component {
 
                                     <div className="d-flex justify-content-center links">
 
-                                        <a className="linka">Forgot your password?</a>
+                                        <a className="linka" href="/forget-password">Forgot your password?</a>
 
                                     </div>
 
