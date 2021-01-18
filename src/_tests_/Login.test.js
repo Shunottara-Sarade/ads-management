@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Login from '../components/Login';
 
-
-
 const setUp = (props = {}) => {
   const component = shallow(<Login {...props} />);
   return component;
@@ -43,6 +41,7 @@ describe('have props', () => {
     expect(Input.length).toBe(1);
   })
 
+
 });
 
 
@@ -65,33 +64,24 @@ describe('<Login/>', () => {
     ).toBe(1);
   });
 
-  // it('`<input>` element should have a placeholder attribute with value `Name`', () => {
-  //     expect(
-  //       wrapper.find('FormGroup').childAt(0).props().placeholder
-  //     ).toBe('&#xf0e0; Email Id');
-  //   });
-
-  //   it('should display an error when no value is input', () => {
-  //     const handleFormSubmit = spy();
-  //     wrapper = mount(<LoginCust handleFormSubmit={handleFormSubmit} />);
-  //     wrapper.find('Form').simulate('submit');
-  //     expect(
-  //       wrapper.state().fieldErrors.name
-  //     ).toBe('Please enter valid email-ID.');
-  //   });
-
 });
-// describe('should not have props', () => {
 
-//     let wrapper;
+describe('Login component tests', () => {
+  const wrapper = shallow(<Login />);
 
-//     beforeEach(() => {
-//         wrapper = setUp();
-//     });
+  it('should have a btn btn-login component', () => {
 
-//     it('should not render', () => {
-//         const component = findByTestAttr(wrapper, 'LoginCust');
-//         console.debug(component);
-//         expect(component.length).toBe(0);
-//     });
-// });
+    //There should be only one button
+    expect(wrapper.find('Button')).toHaveLength(1);
+
+    //Button should be of type submit
+    wrapper.find('Button').simulate('submit');
+
+  });
+  it('should have an empty email and password state var', () => {
+    //Optionally test to check if password and email are empty strings on 
+
+    expect(wrapper.state('email')).toEqual('');
+    expect(wrapper.state('password')).toEqual('');
+  });
+});

@@ -22,6 +22,8 @@ import ShowAdvertisements from './components/ShowAdvertisements';
 import IsPosted from './components/IsPosted';
 import Clothing from './components/Clothing';
 import UnPosted from './components/UnPosted';
+import ForgetPassword from './components/ForgetPassword';
+import StaffForgetPassword from './components/StaffForgetPassword';
 
 class App extends React.Component {
     render() {
@@ -51,6 +53,8 @@ class App extends React.Component {
                     <Route path="/is-posted" component={IsPosted} />
                     <Route path="/clothing" component={Clothing} />
                     <Route path="/not-posted" component={UnPosted} />
+                    <Route path='/forget-password' component={ForgetPassword}/>
+                    <Route path="/staff-forget-password" component={StaffForgetPassword}></Route>
                 </Switch>
             </Router>
         );
