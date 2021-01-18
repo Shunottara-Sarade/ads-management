@@ -149,7 +149,7 @@ export default class StaffLogin extends Component {
 
                 formIsValid = false;
 
-                errors["password"] = "*Please enter secure and strong password.";
+                errors["password"] = "*Please enter valid password.";
 
             }
 
@@ -193,9 +193,9 @@ export default class StaffLogin extends Component {
 
             <div>
                 <Navbar />
-                <div className="container">
+                <div className="container" data-test="staffLogin">
 
-                    <div className="row">
+                    <div className="row" data-test="email">
 
                         <div className="col-md-4 login-sec">
 
@@ -234,6 +234,11 @@ export default class StaffLogin extends Component {
                                     <Button type="submit" className="btn btn-login">Submit</Button>
 
                                 </div>
+                                <div className="d-flex justify-content-center links">
+ 
+                                        <a href="/staff-forget-password" className="linka">Forgot your password?</a>
+ 
+                                    </div>
 
 
                             </Form>
